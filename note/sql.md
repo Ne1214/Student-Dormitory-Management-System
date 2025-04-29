@@ -1,3 +1,4 @@
+```sql
 CREATE TABLE room (
     room_id INT PRIMARY KEY,
     room_number VARCHAR(50),
@@ -12,8 +13,8 @@ CREATE TABLE room (
     last_payment_date DATE,
     note TEXT
 );
-
-
+```
+```sql
 CREATE TABLE resident (
     resident_id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -24,8 +25,8 @@ CREATE TABLE resident (
     room_id INT,
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
-
-
+```
+```sql
 CREATE TABLE repair (
     repair_id INT PRIMARY KEY,
     resident_id INT,
@@ -37,8 +38,8 @@ CREATE TABLE repair (
     FOREIGN KEY (resident_id) REFERENCES resident(resident_id),
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
-
-
+```
+```sql
 CREATE TABLE announcement (
     announcement_id INT PRIMARY KEY,
     title VARCHAR(200),
@@ -46,8 +47,8 @@ CREATE TABLE announcement (
     created_at DATE,
     updated_at DATE
 );
-
-
+```
+```sql
 CREATE TABLE rental (
     rental_id INT PRIMARY KEY,
     resident_id INT,
@@ -58,8 +59,8 @@ CREATE TABLE rental (
     return_date DATE,
     FOREIGN KEY (resident_id) REFERENCES resident(resident_id)
 );
-
-
+```
+```sql
 CREATE TABLE visitor (
     visitor_id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -70,7 +71,8 @@ CREATE TABLE visitor (
     check_out DATETIME,
     FOREIGN KEY (resident_id) REFERENCES resident(resident_id)
 );
-
+```
+```sql
 CREATE TABLE lottery (
     lottery_id INT PRIMARY KEY,
     resident_id INT,
@@ -81,3 +83,4 @@ CREATE TABLE lottery (
     FOREIGN KEY (resident_id) REFERENCES resident(resident_id),
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
+```
