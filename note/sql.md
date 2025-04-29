@@ -1,4 +1,3 @@
-
 CREATE TABLE room (
     room_id INT PRIMARY KEY,
     room_number VARCHAR(50),
