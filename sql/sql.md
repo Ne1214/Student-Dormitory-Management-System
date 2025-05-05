@@ -292,7 +292,7 @@ INSERT INTO user_account (
 ('admin01', '$2b$12$abcdEfghIjKlMnOpQrSTUvWxYz12345678abcdefghi', NULL,0951321654, 'admin', 'admin01@dorm.com', '2025-05-06 09:15:00', NOW(), NOW()),
 
 -- 學生帳號（與 resident_id 連結）
-('student101', '$2b$12$1234567890abcdefABCDEFghijklmnopQRSTuv', 101,,0951321654, 'student', 'student101@dorm.com', NULL,  NOW(), NOW());
+('student101', '$2b$12$1234567890abcdefABCDEFghijklmnopQRSTuv', 101,0951321654, 'student', 'student101@dorm.com', NULL,  NOW(), NOW());
 ```
 | 欄位名稱          | 資料型別                    | 說明                       |
 | ------------- | ----------------------- | ------------------------ |
