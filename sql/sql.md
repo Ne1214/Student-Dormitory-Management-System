@@ -203,27 +203,6 @@ INSERT INTO lottery VALUES
 | status            | selected   | 抽中狀態（已中籤） |
 | acceptance        | TRUE       | 是否接受分發    |
 | room\_id          | 1          | 分配房間 ID   |
-## Schema：宿舍管理員
-```sql
-CREATE TABLE dormitory_admin (
-    admin_id INT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    assigned_building VARCHAR(100),  -- 指派的宿舍大樓
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-```
-## 範例
-```sql
-INSERT INTO dormitory_admin VALUES
-(1, '王小明', 'Maple Building', '2025-05-06 09:00:00');
-```
-## 說明
-| 欄位名稱                | 類型           | 說明                      |
-| ------------------- | ------------ | ----------------------- |
-| `admin_id`          | INT（主鍵）      | 管理員唯一編號                 |
-| `name`              | VARCHAR(100) | 管理員姓名                   |
-| `assigned_building` | VARCHAR(100) | 指派管理的宿舍大樓名稱             |
-| `created_at`        | DATETIME     | 建立時間                    |
 ## Schema：設備資產管理表
 ```sql
 CREATE TABLE asset (
@@ -256,7 +235,7 @@ INSERT INTO asset VALUES
 | `status`        | ENUM          | 設備狀態（使用中、維修中等）        |
 | `value`         | DECIMAL(10,2) | 設備價值（元）               |
 | `note`          | TEXT          | 備註說明                  |
-
+## Schema：帳密 
 ```sql
 CREATE TABLE IF NOT EXISTS user_account (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -272,6 +251,7 @@ CREATE TABLE IF NOT EXISTS user_account (
     FOREIGN KEY (resident_id) REFERENCES resident(resident_id)
 );
 ```
+## 範例
 ```sql
 INSERT INTO user_account (
     username,
@@ -290,6 +270,7 @@ INSERT INTO user_account (
 -- 學生帳號（與 resident_id 連結）
 ('student101', '$2b$12$1234567890abcdefABCDEFghijklmnopQRSTuv', 101,0951321654, 'student', 'student101@dorm.com', NULL,  NOW(), NOW());
 ```
+## 說明
 | 欄位名稱          | 資料型別                    | 說明                       |
 | ------------- | ----------------------- | ------------------------ |
 | `user_id`     | INT AUTO\_INCREMENT     | 使用者 ID，自動遞增主鍵            |
