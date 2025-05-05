@@ -34,6 +34,21 @@ INSERT INTO room VALUES
 |last_payment_date = '2025-05-01'|最後繳費日期|
 |note = '無異常'|房況備註|
 |用途| 此表整合了房間狀況、容量與帳務資訊，是水電費結算與超額人數查核的核心依據|
+| 欄位                  | 值              | 說明        |
+| ------------------- | -------------- | --------- |
+| room\_id            | 1              | 房間唯一 ID   |
+| room\_number        | A101           | 房號        |
+| building            | Maple Building | 所屬大樓      |
+| capacity            | 4              | 最多可住 4 人  |
+| current\_occupants  | 3              | 目前有 3 名學生 |
+| electricity\_usage  | 120.5          | 電使用量（度）   |
+| electricity\_fee    | 300            | 電費（元）     |
+| water\_usage        | 25.0           | 水使用量（度）   |
+| water\_fee          | 100            | 水費（元）     |
+| is\_paid            | TRUE           | 是否已繳費     |
+| last\_payment\_date | 2025-05-01     | 上次繳費日期    |
+| note                | 無異常            | 備註        |
+
 ```sql
 CREATE TABLE resident (
     resident_id INT PRIMARY KEY,
