@@ -31,7 +31,7 @@ CREATE TABLE resident (
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
 ```
-```
+```sql
 INSERT INTO resident VALUES
 (101, 'Alice Chen', 'female', '2003-03-15', '0912345678', 'alice@mail.com', 1);
 ```
@@ -49,6 +49,10 @@ CREATE TABLE repair (
 );
 ```
 ```sql
+INSERT INTO repair VALUES
+(1, 101, 1, '冷氣漏水', 'in_progress', '2025-05-01', NULL);
+```
+```sql
 CREATE TABLE announcement (
     announcement_id INT PRIMARY KEY,
     title VARCHAR(200),
@@ -56,6 +60,10 @@ CREATE TABLE announcement (
     created_at DATE,
     updated_at DATE
 );
+```
+```sql
+INSERT INTO announcement VALUES
+(1, '停電通知', '因電力維修，5月10日停電一天。', '2025-05-05', '2025-05-05');
 ```
 ```sql
 CREATE TABLE rental (
@@ -70,6 +78,10 @@ CREATE TABLE rental (
 );
 ```
 ```sql
+INSERT INTO rental VALUES
+(1, 101, '吸塵器', 1, 'borrowed', '2025-05-03', NULL);
+```
+```sql
 CREATE TABLE visitor (
     visitor_id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -82,6 +94,10 @@ CREATE TABLE visitor (
 );
 ```
 ```sql
+INSERT INTO visitor VALUES
+(1, 'John Doe', '0911222333', '拜訪朋友', 101, '2025-05-05 15:00:00', '2025-05-05 17:30:00');
+```
+```sql
 CREATE TABLE lottery (
     lottery_id INT PRIMARY KEY,
     resident_id INT,
@@ -92,4 +108,8 @@ CREATE TABLE lottery (
     FOREIGN KEY (resident_id) REFERENCES resident(resident_id),
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
+```
+```sql
+INSERT INTO lottery VALUES
+(1, 101, '2025-04-01', 'selected', TRUE, 1);
 ```
