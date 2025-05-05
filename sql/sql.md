@@ -1,3 +1,4 @@
+## Schema
 ```sql
 CREATE TABLE room (
     room_id INT PRIMARY KEY,
