@@ -14,6 +14,7 @@ CREATE TABLE room (
     note TEXT
 );
 ```
+###範例
 ```sql
 INSERT INTO room VALUES
 (1, 'A101', 'Maple Building', 4, 3, 120.5, 300, 25.0, 100, TRUE, '2025-05-01', '無異常');
