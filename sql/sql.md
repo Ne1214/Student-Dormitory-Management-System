@@ -219,7 +219,7 @@ CREATE TABLE dormitory_admin (
 ## 範例
 ```sql
 INSERT INTO dormitory_admin VALUES
-(1, '王小明', '0911222333', 'admin01@dorm.com', 'Maple Building', 'manager', '2025-05-06 09:00:00');
+(1, '王小明', 'Maple Building', '2025-05-06 09:00:00');
 ```
 ## 說明
 | 欄位名稱                | 類型           | 說明                      |
