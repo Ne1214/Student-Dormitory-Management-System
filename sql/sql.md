@@ -35,7 +35,7 @@ INSERT INTO room VALUES
 | is\_paid            | TRUE           | 是否已繳費     |
 | last\_payment\_date | 2025-05-01     | 上次繳費日期    |
 | note                | 無異常            | 備註        |
-
+## Schema
 ```sql
 CREATE TABLE resident (
     resident_id INT PRIMARY KEY,
@@ -48,10 +48,22 @@ CREATE TABLE resident (
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
 ```
+## 範例
 ```sql
 INSERT INTO resident VALUES
 (101, 'Alice Chen', 'female', '2003-03-15', '0912345678', 'alice@mail.com', 1);
 ```
+## 說明
+| 欄位           | 值                                       | 說明       |
+| ------------ | --------------------------------------- | -------- |
+| resident\_id | 101                                     | 學生唯一識別碼  |
+| name         | Alice Chen                              | 學生姓名     |
+| gender       | female                                  | 性別       |
+| dob          | 2003-03-15                              | 出生日期     |
+| phone        | 0912345678                              | 連絡電話     |
+| email        | [alice@mail.com](mailto:alice@mail.com) | Email 地址 |
+| room\_id     | 1                                       | 入住房間 ID  |
+
 ```sql
 CREATE TABLE repair (
     repair_id INT PRIMARY KEY,
