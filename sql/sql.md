@@ -64,7 +64,6 @@ INSERT INTO resident VALUES
 | email        | [alice@mail.com](xxx@mail.com) | Email 地址 |
 | room\_id     | 1                                       | 入住房間 ID  |
 | 元素                         | 說明                                                   |
-| -------------------------- | ---------------------------------------------------- |
 | FOREIGN KEY              | 關鍵字，用來宣告這是一個外鍵欄位                                     |
 | (room_id)                | 欲設定為外鍵的欄位名稱（在本表中）                                    |
 | REFERENCES room(room_id) | 指定所參照的資料表及欄位，即 room 資料表中的 room_id 欄位             |
