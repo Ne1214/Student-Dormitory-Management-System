@@ -63,7 +63,7 @@ INSERT INTO resident VALUES
 | phone        | 0912345678                              | 連絡電話     |
 | email        | [alice@mail.com](xxx@mail.com) | Email 地址 |
 | room\_id     | 1                                       | 入住房間 ID  |
-
+## Schema
 ```sql
 CREATE TABLE repair (
     repair_id INT PRIMARY KEY,
@@ -77,10 +77,22 @@ CREATE TABLE repair (
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
 ```
+## 範例
 ```sql
 INSERT INTO repair VALUES
 (1, 101, 1, '冷氣漏水', 'in_progress', '2025-05-01', NULL);
 ```
+## 說明
+| 欄位               | 值            | 說明         |
+| ---------------- | ------------ | ---------- |
+| repair\_id       | 1            | 維修單編號      |
+| resident\_id     | 101          | 提出者 ID     |
+| room\_id         | 1            | 房間 ID      |
+| issue            | 冷氣漏水         | 問題描述       |
+| status           | in\_progress | 維修狀態（進行中）  |
+| request\_date    | 2025-05-01   | 提出日期       |
+| completion\_date | NULL         | 尚未完成（NULL） |
+## Schema
 ```sql
 CREATE TABLE announcement (
     announcement_id INT PRIMARY KEY,
@@ -90,10 +102,21 @@ CREATE TABLE announcement (
     updated_at DATE
 );
 ```
+## 範例
 ```sql
 INSERT INTO announcement VALUES
 (1, '停電通知', '因電力維修，5月10日停電一天。', '2025-05-05', '2025-05-05');
 ```
+## 說明
+| 欄位               | 值                | 說明    |
+| ---------------- | ---------------- | ----- |
+| announcement\_id | 1                | 公告 ID |
+| title            | 停電通知             | 公告標題  |
+| content          | 因電力維修，5月10日停電一天。 | 公告內容  |
+| created\_at      | 2025-05-05       | 建立日期  |
+| updated\_at      | 2025-05-05       | 更新日期  |
+
+## Schema
 ```sql
 CREATE TABLE rental (
     rental_id INT PRIMARY KEY,
@@ -106,10 +129,23 @@ CREATE TABLE rental (
     FOREIGN KEY (resident_id) REFERENCES resident(resident_id)
 );
 ```
+## 範例
 ```sql
 INSERT INTO rental VALUES
 (1, 101, '吸塵器', 1, 'borrowed', '2025-05-03', NULL);
 ```
+## 說明
+| 欄位           | 值          | 說明      |
+| ------------ | ---------- | ------- |
+| rental\_id   | 1          | 借用紀錄 ID |
+| resident\_id | 101        | 借用人     |
+| item\_name   | 吸塵器        | 借用物品名稱  |
+| quantity     | 1          | 借用數量    |
+| status       | borrowed   | 借用中     |
+| borrow\_date | 2025-05-03 | 借出日期    |
+| return\_date | NULL       | 尚未歸還    |
+
+## Schema
 ```sql
 CREATE TABLE visitor (
     visitor_id INT PRIMARY KEY,
@@ -122,10 +158,23 @@ CREATE TABLE visitor (
     FOREIGN KEY (resident_id) REFERENCES resident(resident_id)
 );
 ```
+## 範例
 ```sql
 INSERT INTO visitor VALUES
 (1, 'John Doe', '0911222333', '拜訪朋友', 101, '2025-05-05 15:00:00', '2025-05-05 17:30:00');
 ```
+## 說明
+| 欄位           | 值                   | 說明       |
+| ------------ | ------------------- | -------- |
+| visitor\_id  | 1                   | 訪客紀錄 ID  |
+| name         | John Doe            | 訪客姓名     |
+| phone        | 0911222333          | 訪客電話     |
+| purpose      | 拜訪朋友                | 來訪目的     |
+| resident\_id | 101                 | 拜訪的學生 ID |
+| check\_in    | 2025-05-05 15:00:00 | 入宿時間     |
+| check\_out   | 2025-05-05 17:30:00 | 離開時間     |
+
+## Schema
 ```sql
 CREATE TABLE lottery (
     lottery_id INT PRIMARY KEY,
@@ -138,7 +187,17 @@ CREATE TABLE lottery (
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
 ```
+## 範例
 ```sql
 INSERT INTO lottery VALUES
 (1, 101, '2025-04-01', 'selected', TRUE, 1);
 ```
+## 說明
+| 欄位                | 值          | 說明        |
+| ----------------- | ---------- | --------- |
+| lottery\_id       | 1          | 抽籤 ID     |
+| resident\_id      | 101        | 學生 ID     |
+| application\_date | 2025-04-01 | 申請抽籤日期    |
+| status            | selected   | 抽中狀態（已中籤） |
+| acceptance        | TRUE       | 是否接受分發    |
+| room\_id          | 1          | 分配房間 ID   |
