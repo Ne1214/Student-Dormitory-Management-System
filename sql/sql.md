@@ -212,10 +212,7 @@ INSERT INTO lottery VALUES
 CREATE TABLE dormitory_admin (
     admin_id INT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    phone VARCHAR(20),
-    email VARCHAR(100),
     assigned_building VARCHAR(100),  -- 指派的宿舍大樓
-    role ENUM('manager', 'staff') DEFAULT 'staff',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 ```
@@ -229,10 +226,7 @@ INSERT INTO dormitory_admin VALUES
 | ------------------- | ------------ | ----------------------- |
 | `admin_id`          | INT（主鍵）      | 管理員唯一編號                 |
 | `name`              | VARCHAR(100) | 管理員姓名                   |
-| `phone`             | VARCHAR(20)  | 聯絡電話                    |
-| `email`             | VARCHAR(100) | Email 地址                |
 | `assigned_building` | VARCHAR(100) | 指派管理的宿舍大樓名稱             |
-| `role`              | ENUM         | 權限層級（如 manager / staff） |
 | `created_at`        | DATETIME     | 建立時間                    |
 ## Schema：設備資產管理表
 ```sql
@@ -266,4 +260,50 @@ INSERT INTO asset VALUES
 | `status`        | ENUM          | 設備狀態（使用中、維修中等）        |
 | `value`         | DECIMAL(10,2) | 設備價值（元）               |
 | `note`          | TEXT          | 備註說明                  |
+
+```sql
+CREATE TABLE IF NOT EXISTS user_account (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    resident_id INT,
+    phone VARCHAR(20),
+    role ENUM('admin', 'student') NOT NULL DEFAULT 'student',
+    email VARCHAR(100) UNIQUE,
+    last_login DATETIME,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (resident_id) REFERENCES resident(resident_id)
+);
+```
+```sql
+INSERT INTO user_account (
+    username,
+    password,
+    resident_id,
+    phone.
+    role,
+    email,
+    last_login,
+    created_at,
+    updated_at
+) VALUES
+-- 管理員帳號
+('admin01', '$2b$12$abcdEfghIjKlMnOpQrSTUvWxYz12345678abcdefghi', NULL, 'admin', 'admin01@dorm.com', '2025-05-06 09:15:00', 'active', NULL, NULL, NOW(), NOW()),
+
+-- 學生帳號（與 resident_id 連結）
+('student101', '$2b$12$1234567890abcdefABCDEFghijklmnopQRSTuv', 101, 'student', 'student101@dorm.com', NULL, 'active', NULL, NULL, NOW(), NOW());
+```
+| 欄位名稱                     | 說明                                       |
+| ------------------------ | ---------------------------------------- |
+| `user_id`                | 使用者 ID，自動遞增主鍵                            |
+| `username`               | 使用者帳號，需唯一                                |
+| `password`               | 密碼欄位，建議儲存加密後內容                           |
+| `resident_id`            | 若為學生，對應 `resident` 表的 ID                 |
+| `phone`             | VARCHAR(20)  | 聯絡電話                    |
+| `role`                   | 使用者角色（admin / manager / student / staff） |
+| `email`                  | 電子信箱，唯一                                  |
+| `last_login`             | 最後登入時間                                   |
+| `created_at`             | 帳號建立時間                                   |
+| `updated_at`             | 資料更新時間                                   |
 
