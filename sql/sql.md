@@ -33,9 +33,7 @@ INSERT INTO room VALUES
 |is_paid = TRUE|表示這間房水電費已繳|
 |last_payment_date = '2025-05-01'|最後繳費日期|
 |note = '無異常'|房況備註|
-
-
-|用途： 此表整合了房間狀況、容量與帳務資訊，是水電費結算與超額人數查核的核心依據|
+|用途| 此表整合了房間狀況、容量與帳務資訊，是水電費結算與超額人數查核的核心依據|
 ```sql
 CREATE TABLE resident (
     resident_id INT PRIMARY KEY,
