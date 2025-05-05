@@ -234,3 +234,36 @@ INSERT INTO dormitory_admin VALUES
 | `assigned_building` | VARCHAR(100) | 指派管理的宿舍大樓名稱             |
 | `role`              | ENUM         | 權限層級（如 manager / staff） |
 | `created_at`        | DATETIME     | 建立時間                    |
+## Schema：設備資產管理表
+```sql
+CREATE TABLE asset (
+    asset_id INT PRIMARY KEY,
+    asset_name VARCHAR(100) NOT NULL,
+    asset_type VARCHAR(50),
+    room_id INT,
+    purchase_date DATE,
+    status ENUM('available', 'in_repair', 'damaged', 'disposed') DEFAULT 'available',
+    value DECIMAL(10,2),
+    note TEXT,
+    FOREIGN KEY (room_id) REFERENCES room(room_id)
+);
+```
+## 範例
+```sql
+INSERT INTO asset VALUES
+(1, '冷氣機', '電器', 1, '2023-09-01', 'available', 15000.00, '每年定期清洗'),
+(2, '書桌', '家具', 1, '2022-08-15', 'damaged', 2000.00, '抽屜損壞待修'),
+(3, '公共飲水機', '電器', NULL, '2021-06-01', 'in_repair', 8000.00, '設於交誼廳');
+```
+## 說明
+| 欄位名稱            | 資料型別          | 說明                    |
+| --------------- | ------------- | --------------------- |
+| `asset_id`      | INT（主鍵）       | 設備唯一識別碼               |
+| `asset_name`    | VARCHAR(100)  | 設備名稱（如：冷氣、書桌）         |
+| `asset_type`    | VARCHAR(50)   | 設備類型（如：電器、家具）         |
+| `room_id`       | INT           | 所屬房間 ID（可為 NULL 表示共用） |
+| `purchase_date` | DATE          | 購買日期                  |
+| `status`        | ENUM          | 設備狀態（使用中、維修中等）        |
+| `value`         | DECIMAL(10,2) | 設備價值（元）               |
+| `note`          | TEXT          | 備註說明                  |
+
