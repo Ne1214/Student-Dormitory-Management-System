@@ -294,16 +294,17 @@ INSERT INTO user_account (
 -- 學生帳號（與 resident_id 連結）
 ('student101', '$2b$12$1234567890abcdefABCDEFghijklmnopQRSTuv', 101,,0951321654, 'student', 'student101@dorm.com', NULL,  NOW(), NOW());
 ```
-| 欄位名稱                     | 說明                                       |
-| ------------------------ | ---------------------------------------- |
-| `user_id`                | 使用者 ID，自動遞增主鍵                            |
-| `username`               | 使用者帳號，需唯一                                |
-| `password`               | 密碼欄位，建議儲存加密後內容                           |
-| `resident_id`            | 若為學生，對應 `resident` 表的 ID                 |
-| `phone`             | VARCHAR(20)  | 聯絡電話                    |
-| `role`                   | 使用者角色（admin / manager / student / staff） |
-| `email`                  | 電子信箱，唯一                                  |
-| `last_login`             | 最後登入時間                                   |
-| `created_at`             | 帳號建立時間                                   |
-| `updated_at`             | 資料更新時間                                   |
+| 欄位名稱          | 資料型別                    | 說明                       |
+| ------------- | ----------------------- | ------------------------ |
+| `user_id`     | INT AUTO\_INCREMENT     | 使用者 ID，自動遞增主鍵            |
+| `username`    | VARCHAR(50)             | 使用者帳號，需唯一                |
+| `password`    | VARCHAR(255)            | 密碼欄位，建議儲存加密後內容           |
+| `resident_id` | INT                     | 若為學生，對應 `resident` 表的 ID |
+| `phone`       | VARCHAR(20)             | 聯絡電話                     |
+| `role`        | ENUM('admin','student') | 使用者角色（admin / student）   |
+| `email`       | VARCHAR(100)            | 電子信箱，唯一                  |
+| `last_login`  | DATETIME                | 最後登入時間                   |
+| `created_at`  | DATETIME                | 帳號建立時間                   |
+| `updated_at`  | DATETIME                | 資料更新時間                   |
+
 
