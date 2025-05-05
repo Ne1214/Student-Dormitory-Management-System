@@ -42,8 +42,6 @@ CREATE TABLE resident (
     name VARCHAR(100),
     gender ENUM('male', 'female', 'other'),
     dob DATE,
-    phone VARCHAR(20),
-    email VARCHAR(100),
     room_id INT,
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
@@ -51,7 +49,7 @@ CREATE TABLE resident (
 ## 範例
 ```sql
 INSERT INTO resident VALUES
-(101, 'Alice Chen', 'female', '2003-03-15', '0912345678', 'alice@mail.com', 1);
+(101, 'Alice Chen', 'female', '2003-03-15', 1);
 ```
 ## 說明
 | 欄位           | 值                                       | 說明       |
