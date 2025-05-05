@@ -58,8 +58,6 @@ INSERT INTO resident VALUES
 | name         | Alice Chen                              | 學生姓名     |
 | gender       | female                                  | 性別       |
 | dob          | 2003-03-15                              | 出生日期     |
-| phone        | 0912345678                              | 連絡電話     |
-| email        | [alice@mail.com](xxx@mail.com) | Email 地址 |
 | room\_id     | 1                                       | 入住房間 ID  |
 | 元素                         | 說明                                                   |
 | FOREIGN KEY              | 關鍵字，用來宣告這是一個外鍵欄位                                     |
