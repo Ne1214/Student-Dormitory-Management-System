@@ -15,6 +15,11 @@ CREATE TABLE room (
 );
 ```
 ```sql
+INSERT INTO room VALUES
+(1, 'A101', 'Maple Building', 4, 3, 120.5, 300, 25.0, 100, TRUE, '2025-05-01', '無異常');
+```
+
+```sql
 CREATE TABLE resident (
     resident_id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -25,6 +30,10 @@ CREATE TABLE resident (
     room_id INT,
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
+```
+```
+INSERT INTO resident VALUES
+(101, 'Alice Chen', 'female', '2003-03-15', '0912345678', 'alice@mail.com', 1);
 ```
 ```sql
 CREATE TABLE repair (
