@@ -281,7 +281,7 @@ INSERT INTO user_account (
     username,
     password,
     resident_id,
-    phone.
+    phone,
     role,
     email,
     last_login,
