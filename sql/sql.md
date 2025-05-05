@@ -207,3 +207,34 @@ INSERT INTO lottery VALUES
 | status            | selected   | 抽中狀態（已中籤） |
 | acceptance        | TRUE       | 是否接受分發    |
 | room\_id          | 1          | 分配房間 ID   |
+## Schema：宿舍管理員
+```sql
+CREATE TABLE dormitory_admin (
+    admin_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20),
+    email VARCHAR(100),
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    assigned_building VARCHAR(100),  -- 指派的宿舍大樓
+    role ENUM('manager', 'staff') DEFAULT 'staff',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+```
+## 範例
+```sql
+INSERT INTO dormitory_admin VALUES
+(1, '王小明', '0911222333', 'admin01@dorm.com', 'admin01', 'hashed_pw_123', 'Maple Building', 'manager', '2025-05-06 09:00:00');
+```
+## 說明
+| 欄位名稱                | 類型           | 說明                      |
+| ------------------- | ------------ | ----------------------- |
+| `admin_id`          | INT（主鍵）      | 管理員唯一編號                 |
+| `name`              | VARCHAR(100) | 管理員姓名                   |
+| `phone`             | VARCHAR(20)  | 聯絡電話                    |
+| `email`             | VARCHAR(100) | Email 地址                |
+| `username`          | VARCHAR(50)  | 系統登入帳號，需唯一              |
+| `password`          | VARCHAR(100) | 系統登入密碼（需加密存儲）           |
+| `assigned_building` | VARCHAR(100) | 指派管理的宿舍大樓名稱             |
+| `role`              | ENUM         | 權限層級（如 manager / staff） |
+| `created_at`        | DATETIME     | 建立時間                    |
