@@ -21,19 +21,6 @@ INSERT INTO room VALUES
 (1, 'A101', 'Maple Building', 4, 3, 120.5, 300, 25.0, 100, TRUE, '2025-05-01', '無異常');
 ```
 ## 說明
-|欄位|說明|
-|:--:|:--:|
-|room_id = 1|房間主鍵|
-|room_number = 'A101'|房號 A101|
-|building = 'Maple Building'|位於 Maple 大樓|
-|capacity = 4|最多可住 4 人|
-|current_occupants = 3|目前有 3 名學生入住|
-|electricity_usage = 120.5（度）、electricity_fee = 300（元|本期電費資訊|
-|water_usage = 25.0（度）、water_fee = 100（元)|本期水費資訊|
-|is_paid = TRUE|表示這間房水電費已繳|
-|last_payment_date = '2025-05-01'|最後繳費日期|
-|note = '無異常'|房況備註|
-|用途| 此表整合了房間狀況、容量與帳務資訊，是水電費結算與超額人數查核的核心依據|
 | 欄位                  | 值              | 說明        |
 | ------------------- | -------------- | --------- |
 | room\_id            | 1              | 房間唯一 ID   |
