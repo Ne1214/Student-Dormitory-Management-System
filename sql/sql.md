@@ -63,6 +63,13 @@ INSERT INTO resident VALUES
 | phone        | 0912345678                              | 連絡電話     |
 | email        | [alice@mail.com](xxx@mail.com) | Email 地址 |
 | room\_id     | 1                                       | 入住房間 ID  |
+| 元素                         | 說明                                                   |
+| -------------------------- | ---------------------------------------------------- |
+| FOREIGN KEY              | 關鍵字，用來宣告這是一個外鍵欄位                                     |
+| (room_id)                | 欲設定為外鍵的欄位名稱（在本表中）                                    |
+| REFERENCES room(room_id) | 指定所參照的資料表及欄位，即 room 資料表中的 room_id 欄位             |
+| 關聯邏輯                    | 代表本表的 room_id 必須對應 room 表中的某筆 room_id，否則無法插入資料 |
+
 ## Schema：維修紀錄
 ```sql
 CREATE TABLE repair (
