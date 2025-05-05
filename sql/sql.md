@@ -61,7 +61,7 @@ INSERT INTO resident VALUES
 | gender       | female                                  | 性別       |
 | dob          | 2003-03-15                              | 出生日期     |
 | phone        | 0912345678                              | 連絡電話     |
-| email        | [alice@mail.com](mailto:alice@mail.com) | Email 地址 |
+| email        | [alice@mail.com](xxx@mail.com) | Email 地址 |
 | room\_id     | 1                                       | 入住房間 ID  |
 
 ```sql
