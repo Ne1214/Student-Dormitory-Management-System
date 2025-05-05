@@ -29,7 +29,7 @@ INSERT INTO room VALUES
 | capacity            | 4              | 最多可住 4 人  |
 | current\_occupants  | 3              | 目前有 3 名學生 |
 | electricity\_usage  | 120.5          | 電使用量（度）   |
-| electricity\_fee    | 300            | 電費（元）     |
+| electricity\_fee    | 300.0          | 電費（元）     |
 | water\_usage        | 25.0           | 水使用量（度）   |
 | water\_fee          | 100            | 水費（元）     |
 | is\_paid            | TRUE           | 是否已繳費     |
