@@ -26,11 +26,12 @@
 我們系統主要為宿舍管理而設計，提升管理效率與便利性。透過入住登記，學生可順利辦理住宿，房間管理功能則協助分配與統計床位，確保資源最佳化。租金繳納與退宿處理流程簡化，減少管理負擔，並提供用戶管理功能，區分學生與管理員權限。通知與公告管理確保重要資訊即時傳達，而資料報表與統計功能則提供房間使用、租金繳納等分析。設施維護機制讓住宿生回報設備問題，確保住宿品質。
 
 ## 系統環境
+系統: Ubuntu24.04
 資料庫：MariaDB</br>
-前端：html,css</br>
-後端：php,laravel</br>
+前端：Html,Css</br>
+後端：Php,Laravel</br>
 API tools﹕Laravel API</br>
-撰寫軟體：phpstorm,dataspell</br>
+撰寫軟體：PhpStorm,DataSpell</br>
 
 ## ERDiagram
 |資料表連接方向|連接說明|
