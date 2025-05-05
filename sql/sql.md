@@ -21,7 +21,9 @@ INSERT INTO room VALUES
 (1, 'A101', 'Maple Building', 4, 3, 120.5, 300, 25.0, 100, TRUE, '2025-05-01', '無異常');
 ```
 ## 說明
-### room_id = 1：房間主鍵。
+|欄位|說明|
+|:--:|:--:|
+|room_id = 1|房間主鍵|
 ### room_number = 'A101'：房號 A101。
 ### building = 'Maple Building'：位於 Maple 大樓。
 ### capacity = 4：最多可住 4 人。
