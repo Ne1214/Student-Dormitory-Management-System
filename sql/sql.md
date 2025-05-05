@@ -1,4 +1,4 @@
-## Schema
+## Schema：房間資訊
 ```sql
 CREATE TABLE room (
     room_id INT PRIMARY KEY,
@@ -35,7 +35,7 @@ INSERT INTO room VALUES
 | is\_paid            | TRUE           | 是否已繳費     |
 | last\_payment\_date | 2025-05-01     | 上次繳費日期    |
 | note                | 無異常            | 備註        |
-## Schema
+## Schema：住戶資訊
 ```sql
 CREATE TABLE resident (
     resident_id INT PRIMARY KEY,
@@ -63,7 +63,7 @@ INSERT INTO resident VALUES
 | phone        | 0912345678                              | 連絡電話     |
 | email        | [alice@mail.com](xxx@mail.com) | Email 地址 |
 | room\_id     | 1                                       | 入住房間 ID  |
-## Schema
+## Schema：維修紀錄
 ```sql
 CREATE TABLE repair (
     repair_id INT PRIMARY KEY,
@@ -92,7 +92,7 @@ INSERT INTO repair VALUES
 | status           | in\_progress | 維修狀態（進行中）  |
 | request\_date    | 2025-05-01   | 提出日期       |
 | completion\_date | NULL         | 尚未完成（NULL） |
-## Schema
+## Schema：公告
 ```sql
 CREATE TABLE announcement (
     announcement_id INT PRIMARY KEY,
@@ -116,7 +116,7 @@ INSERT INTO announcement VALUES
 | created\_at      | 2025-05-05       | 建立日期  |
 | updated\_at      | 2025-05-05       | 更新日期  |
 
-## Schema
+## Schema：物品租借
 ```sql
 CREATE TABLE rental (
     rental_id INT PRIMARY KEY,
@@ -145,7 +145,7 @@ INSERT INTO rental VALUES
 | borrow\_date | 2025-05-03 | 借出日期    |
 | return\_date | NULL       | 尚未歸還    |
 
-## Schema
+## Schema： 訪客紀錄
 ```sql
 CREATE TABLE visitor (
     visitor_id INT PRIMARY KEY,
@@ -174,7 +174,7 @@ INSERT INTO visitor VALUES
 | check\_in    | 2025-05-05 15:00:00 | 入宿時間     |
 | check\_out   | 2025-05-05 17:30:00 | 離開時間     |
 
-## Schema
+## Schema：抽籤紀錄
 ```sql
 CREATE TABLE lottery (
     lottery_id INT PRIMARY KEY,
