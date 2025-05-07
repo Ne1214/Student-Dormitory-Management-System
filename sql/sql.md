@@ -276,7 +276,7 @@ INSERT INTO user_account (
 | `user_id`     | INT AUTO\_INCREMENT     | 使用者 ID，自動遞增主鍵            |
 | `username`    | VARCHAR(50)             | 使用者帳號，需唯一                |
 | `password`    | VARCHAR(255)            | 密碼欄位，建議儲存加密後內容           |
-| `resident_id` | INT                     | 若為學生，對應 `resident` 表的 ID |
+| `resident_id` | INT                     | 對應 `resident` 表的 ID |
 | `phone`       | VARCHAR(20)             | 聯絡電話                     |
 | `role`        | ENUM('admin','student') | 使用者角色（admin / student）   |
 | `email`       | VARCHAR(100)            | 電子信箱，唯一                  |
