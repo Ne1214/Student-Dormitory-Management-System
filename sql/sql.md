@@ -274,7 +274,7 @@ INSERT INTO user_account (
 | 欄位名稱          | 資料型別                    | 說明                       |
 | ------------- | ----------------------- | ------------------------ |
 | `user_id`     | INT AUTO\_INCREMENT     | 使用者 ID，自動遞增主鍵            |
-| `username`    | VARCHAR(50)             | 使用者帳號，需唯一                |
+| `username`    | VARCHAR(50)             | 學生統一帳號是學號，需唯一                |
 | `password`    | VARCHAR(255)            | 密碼欄位，建議儲存加密後內容           |
 | `resident_id` | INT                     | 對應 `resident` 表的 ID |
 | `phone`       | VARCHAR(20)             | 聯絡電話                     |
