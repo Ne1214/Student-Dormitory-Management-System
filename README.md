@@ -66,7 +66,7 @@ API tools﹕Laravel API</br>
 
 ## 網頁
 
-[登入頁面](http://ccissql.myddns.me)
+[登入頁面](http://140.130.34.68:11236)
 
 [sql管理頁面(phpmyadmin)](http://140.130.34.68:11236/phpmyadmin/)
 
