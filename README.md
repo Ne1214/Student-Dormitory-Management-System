@@ -56,7 +56,7 @@ API tools﹕Laravel API</br>
 
 [資料表說明細節](sql/sql.md)
 
-## 網站
+## 網頁
 
 [登入頁面](http://ccissql.myddns.me)
 
