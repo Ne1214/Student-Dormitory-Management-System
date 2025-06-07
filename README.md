@@ -67,7 +67,7 @@ API tools﹕Laravel API</br>
 
 ## 資料表說明
 
-[資料表說明細節](sql/sql.md)
+[資料表說明細節](sql/sql2.md)
 
 ## 網頁
 
