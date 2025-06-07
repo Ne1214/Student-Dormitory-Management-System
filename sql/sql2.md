@@ -494,7 +494,8 @@ CREATE TABLE utility_bill (
     payment_due_date DATE,
     payment_status VARCHAR(50),
     FOREIGN KEY (room_id) REFERENCES dormitory_room(room_id),
-    FOREIGN KEY (meter_id) REFERENCES utility_meter(meter_id)
+    FOREIGN KEY (meter_id) REFERENCES utility_meter(meter_id),
+    FOREIGN KEY (pricing_id) REFERENCES utility_meter(pricing_id)
 );
 ```
 
