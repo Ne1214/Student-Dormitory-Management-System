@@ -291,7 +291,10 @@ INSERT INTO user_account (
 | `租借資料表`  | C / R | 借用物品與查詢借用紀錄                 |
 | `訪客資料表`  | C / R | 登記訪客、查詢來訪紀錄                 |
 | `帳密資料表`  | R / U | 查詢與更新自己帳號密碼資料（可能僅限密碼與聯絡資料）  |
-
+```sql
+GRANT SELECT ON dormitory.visitor TO 'resident_user'@'localhost';
+GRANT INSERT, SELECT ON dormitory.repair TO 'resident_user'@'localhost';
+```
 
 ## 訪客
 | 欄位 / 表格    | 權限 | 說明                        |
@@ -307,7 +310,9 @@ INSERT INTO user_account (
 | `訪客資料表`    | R         | 查詢來訪紀錄          |
 | `住宿生抽選資料表` | C / R / U | 審核抽籤與錄取資料       |
 | `帳密資料表`    | R         | 查詢住宿生帳號（限特定欄位）  |
-
+```sql
+GRANT SELECT, UPDATE ON dormitory.repair TO 'dorm_admin_user'@'localhost';
+```
 ## 系統管理員
 | 欄位 / 表格 | 權限            | 說明                               |
 | ------- | ------------- | -------------------------------- |
@@ -315,4 +320,6 @@ INSERT INTO user_account (
 | `公告資料表` | C / R / U / D | 管理公告訊息發佈與修改                      |
 | `帳密資料表` | C / R / U / D | 建立與移除用戶帳號，修改角色與密碼等               |
 |`權限管理`    | ✔             | 管理不同角色的權限設定與分派帳號角色               |
-
+```sql
+GRANT ALL PRIVILEGES ON dormitory.* TO 'admin_user'@'localhost';
+```
