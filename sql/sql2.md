@@ -816,3 +816,122 @@ INSERT INTO announcement_category VALUES
 | is\_active      | TRUE                   | 是否啟用該公告分類      |
 
 ---
+
+---
+
+## Schema：角色表
+
+```sql
+CREATE TABLE role (
+    role_id INT PRIMARY KEY,
+    role_name VARCHAR(50),
+    description TEXT
+);
+```
+
+## 範例
+
+```sql
+INSERT INTO role VALUES
+(1, 'Admin', 'System administrator with full access.'),
+(2, 'Student', 'Regular student with limited access.');
+```
+
+## 說明
+
+| 欄位          | 值                | 說明                    |
+| ------------- | ----------------- | ----------------------- |
+| role\_id      | 1                 | 角色唯一 ID              |
+| role\_name    | Admin             | 角色名稱（如管理員、學生） |
+| description   | System admin...   | 角色描述，用於說明角色功能 |
+
+---
+
+## Schema：權限表
+
+```sql
+CREATE TABLE permission (
+    permission_id INT PRIMARY KEY,
+    permission_name VARCHAR(100),
+    description TEXT
+);
+```
+
+## 範例
+
+```sql
+INSERT INTO permission VALUES
+(1, 'Edit Dormitory Data', 'Permission to modify dormitory information.'),
+(2, 'View Announcements', 'Permission to view announcements.');
+```
+
+## 說明
+
+| 欄位               | 值                          | 說明                   |
+| ------------------ | --------------------------- | ---------------------- |
+| permission\_id     | 1                           | 權限唯一 ID             |
+| permission\_name   | Edit Dormitory Data         | 權限名稱                |
+| description        | Permission to modify...     | 權限描述，用於說明權限功能 |
+
+---
+
+## Schema：角色與權限關聯表
+
+```sql
+CREATE TABLE role_permission (
+    id INT PRIMARY KEY,
+    role_id INT,
+    permission_id INT,
+    FOREIGN KEY (role_id) REFERENCES role(role_id),
+    FOREIGN KEY (permission_id) REFERENCES permission(permission_id)
+);
+```
+
+## 範例
+
+```sql
+INSERT INTO role_permission VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 2);
+```
+
+## 說明
+
+| 欄位           | 值   | 說明                          |
+| -------------- | ---- | ----------------------------- |
+| id             | 1    | 關聯記錄唯一 ID                |
+| role\_id       | 1    | 關聯角色表的角色 ID            |
+| permission\_id | 1    | 關聯權限表的權限 ID            |
+
+---
+
+## Schema：用戶與角色關聯表
+
+```sql
+CREATE TABLE user_role (
+    id INT PRIMARY KEY,
+    account_id VARCHAR(50),
+    role_id INT,
+    FOREIGN KEY (account_id) REFERENCES account_management(account_id),
+    FOREIGN KEY (role_id) REFERENCES role(role_id)
+);
+```
+
+## 範例
+
+```sql
+INSERT INTO user_role VALUES
+(1, 'user1', 1),
+(2, 'user2', 2);
+```
+
+## 說明
+
+| 欄位         | 值     | 說明                          |
+| ------------ | ------ | ----------------------------- |
+| id           | 1      | 關聯記錄唯一 ID                |
+| account\_id  | user1  | 關聯使用者帳號 ID              |
+| role\_id     | 1      | 關聯角色表的角色 ID            |
+
+---
