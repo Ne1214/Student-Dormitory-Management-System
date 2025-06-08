@@ -863,3 +863,73 @@ INSERT INTO user_role VALUES
 | role\_id     | 1      | 關聯角色表的角色 ID            |
 
 ---
+
+# view表
+## 住宿生權限 View
+| 名稱                    | 涉獵的屬性                                                                                |說明                    |
+| --------------------- | ------------------------------------------------------------------------------------ |-------------------------------------------|  
+| `view_student_access` | account\_management(account\_id, role)、student(student\_id, name, department, grade) |學生登入後可查詢自身帳號、身分與基本學籍資訊。|
+
+```sql
+CREATE VIEW view_student_access AS
+SELECT 
+    a.account_id,
+    a.role,
+    s.student_id,
+    s.name,
+    s.department,
+    s.grade
+FROM account_management a
+JOIN student s ON a.account_id = s.account_id
+WHERE a.role = 'student';
+```
+## 訪客紀錄 View
+| 名稱                    | 涉獵的屬性                                                                                               |說明                    |
+| --------------------- | --------------------------------------------------------------------------------------------------- |------------------------------------------------------------ |
+| `view_visitor_access` | visitor(visitor\_id, name, visitor\_type)、visitor\_log(building\_id, visit\_time, approval\_status) |  用於管理端查詢訪客進出資料及審批狀態，提升訪客出入紀錄透明度。  |
+```sql
+CREATE VIEW view_visitor_access AS
+SELECT 
+    v.visitor_id,
+    v.name,
+    v.visitor_type,
+    vl.building_id,
+    vl.visit_time,
+    vl.approval_status
+FROM visitor v
+JOIN visitor_log vl ON v.visitor_id = vl.visitor_id;
+```
+## 宿舍管理員 View
+| 名稱                         | 涉獵的屬性                                                                                             | 說明                         |
+| -------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `view_dorm_manager_access` | account\_management(account\_id, role)、dormitory\_building(building\_id, building\_name, manager) | 可列出每位宿舍管理員所管理的棟別與其帳號識別，便於日常維運作業安排。   |                           
+```sql
+CREATE VIEW view_dorm_manager_access AS
+SELECT 
+    a.account_id,
+    a.role,
+    d.building_id,
+    d.building_name,
+    d.manager
+FROM account_management a
+JOIN dormitory_building d ON d.manager = a.account_id
+WHERE a.role = 'dorm_manager';
+```
+## 系統管理員 View（含權限）
+| 名稱                  | 涉獵的屬性                                                                                           |說明                  |
+| ------------------- | ----------------------------------------------------------------------------------------------- |-------------------------------------------------------------------- |
+| `view_admin_access` | account\_management(account\_id, role)、user\_role、role(role\_name)、permission(permission\_name) |確認系統管理員帳號與對應擁有的所有功能權限，為後台控管與維運人員授權基礎。|
+```sql
+CREATE VIEW view_admin_access AS
+SELECT 
+    a.account_id,
+    a.role,
+    r.role_name,
+    p.permission_name
+FROM account_management a
+JOIN user_role ur ON a.account_id = ur.account_id
+JOIN role r ON ur.role_id = r.role_id
+JOIN role_permission rp ON r.role_id = rp.role_id
+JOIN permission p ON rp.permission_id = p.permission_id
+WHERE r.role_name = 'Admin';
+```
