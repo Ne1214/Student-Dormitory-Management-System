@@ -48,7 +48,7 @@ API tools﹕Laravel API</br>
 撰寫軟體：PhpStorm,DataSpell</br>
 
 ## ERDiagram
-![1_2](https://github.com/user-attachments/assets/1858d45c-b57a-4e40-b927-a6773b009e18)
+![繪圖1 (2)](https://github.com/user-attachments/assets/c596b52f-e5ea-474a-bc13-9e97d962c927)
 
 
 ## 資料表說明
