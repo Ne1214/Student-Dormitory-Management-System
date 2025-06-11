@@ -60,7 +60,7 @@ API tools﹕Laravel API</br>
 [登入頁面](http://140.130.34.68:11236)
 
 [sql管理頁面(phpmyadmin)](http://140.130.34.68:11236/phpmyadmin/)
-##分工表
+
 # 分工表
 
 | 組員姓名 | 負責項目           | 任務說明                                               |
