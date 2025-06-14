@@ -19,7 +19,7 @@ SELECT
     DATEDIFF(a.expires_at, CURRENT_DATE) AS days_until_expiry
 FROM Announcement a
 JOIN AnnouncementCategory ac ON a.category_id = ac.category_id
-WHERE a.expires_at >= CURRENT_DATE
+WHERE a.expires_at <= CURRENT_DATE
   AND ac.is_active = TRUE
   AND (@category_id IS NULL OR a.category_id = @category_id)
   AND (@search_text IS NULL OR a.title LIKE CONCAT('%', @search_text, '%') OR a.content LIKE CONCAT('%', @search_text, '%'))
@@ -40,7 +40,8 @@ ORDER BY display_priority, a.posted_at DESC;
 |@start_date|按公告發布時間的開始日期篩選|
 |@end_date|按公告發布時間的結束日期篩選|
 ### 範例
-![image](https://github.com/user-attachments/assets/10329fdb-4cfd-423c-8b16-6b54a7b3d612)
+![image](https://github.com/user-attachments/assets/ac03291d-4c7b-47f3-8bdd-0cd583cfca42)
+
 
 ## 門禁系統
 ```sql
@@ -48,7 +49,7 @@ SELECT
     al.log_id, al.swipe_time, ac.student_id, s.name AS student_name, db.building_name, al.access_type, al.result,
     CASE
         WHEN EXTRACT(HOUR FROM al.swipe_time) BETWEEN 0 AND 5 THEN '深夜時段'
-        WHEN al.result != 'success' THEN '刷卡失敗'
+        WHEN al.result != '成功' THEN '刷卡失敗'
         ELSE '正常'
     END AS alert_type
 FROM AccessLog al
@@ -60,7 +61,7 @@ WHERE (@student_id IS NULL OR ac.student_id = @student_id)
     AND (@alert_type IS NULL OR (
         CASE
             WHEN EXTRACT(HOUR FROM al.swipe_time) BETWEEN 0 AND 5 THEN '深夜時段'
-            WHEN al.result != 'success' THEN '刷卡失敗'
+            WHEN al.result != '成功' THEN '刷卡失敗'
             ELSE '正常'
         END = @alert_type
     ))
@@ -82,7 +83,7 @@ ORDER BY al.swipe_time DESC;
 |@end_date|按照刷卡時間的結束日期篩選|
 
 ### 範例
-![image](https://github.com/user-attachments/assets/7c4dead6-e4c1-42f7-a292-93e6af5de853)
+![image](https://github.com/user-attachments/assets/08e963bd-c287-4967-98fb-3433e1dba1e4)
 
 ## 抽籤系統
 ```sql
@@ -128,7 +129,8 @@ ORDER BY lap.application_date DESC;
 |@room_type|按房間類型篩選|
 
 ### 範例
-![image](https://github.com/user-attachments/assets/c6f22ced-182f-440c-acdc-e7a4ce317715)
+![image](https://github.com/user-attachments/assets/2379a058-6985-47d3-ac6a-9221b19a26c3)
+
 
 ## 床位管理系統
 ```sql
@@ -161,5 +163,5 @@ GROUP BY db.building_id, db.building_name, dr.room_type, dr.floor, dr.monthly_re
 |@floor|按樓層篩選|
 
 ### 範例
-![image](https://github.com/user-attachments/assets/b92fcacb-9645-4ed2-afdd-a717851a93fd)
+![image](https://github.com/user-attachments/assets/b4f2ff37-f313-4859-8f10-6049c4dd31fd)
 
