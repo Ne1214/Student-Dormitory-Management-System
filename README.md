@@ -56,6 +56,10 @@ API tools﹕Laravel API</br>
 
 [資料表說明細節](sql/sql2.md)
 
+## view表
+
+[view表說明細節](sql/veiw.md)
+
 ## 網頁
 
 [登入頁面](http://140.130.34.68:11236)
