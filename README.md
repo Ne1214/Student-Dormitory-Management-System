@@ -55,6 +55,7 @@ API tools﹕Laravel API</br>
 ## 資料表說明
 
 [資料表說明細節](sql/sql2.md)
+[資料庫word報告](資料庫系統word.pdf)
 
 ## view表
 
