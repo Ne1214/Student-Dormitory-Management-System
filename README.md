@@ -66,7 +66,7 @@ API tools﹕Laravel API</br>
 [登入頁面](http://140.130.34.68:11236)
 
 [sql管理頁面(phpmyadmin)](http://140.130.34.68:11236/phpmyadmin/)
-
+[期末簡報網址](https://www.canva.com/design/DAGpduD9Ay0/Lgnf_kmy1loxScDBiiYiVA/view?utm_content=DAGpduD9Ay0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h33d01e0001)
 # 分工表
 
 | 組員姓名 | 負責項目           | 任務說明                                               |
